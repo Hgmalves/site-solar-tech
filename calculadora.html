@@ -29,7 +29,7 @@
     <div class="page-heading">
       <p class="eyebrow">Simulador educativo</p>
       <h1>Dimensionamento do projeto solar</h1>
-      <p>Preencha os dados da conta de luz para estimar o tamanho do sistema fotovoltaico e a economia possível.</p>
+      <p>Preencha os dados da conta de luz para estimar tamanho do sistema, investimento, economia líquida e retorno aproximado.</p>
     </div>
 
     <section class="calculator-shell">
@@ -53,7 +53,7 @@
         </fieldset>
 
         <fieldset>
-          <legend>Dados do sistema</legend>
+          <legend>Dados técnicos e financeiros</legend>
           <div class="form-grid">
             <label>Tarifa com impostos (R$/kWh)
               <input type="number" min="0" step="0.01" id="tarifa" value="0.84">
@@ -66,21 +66,51 @@
                 <option value="1" selected>100%</option>
               </select>
             </label>
-            <label>Estado / irradiação média
+            <label>Estado / irradiação média diária
               <select id="estado">
                 <option value="4.46">Acre</option>
                 <option value="5.37">Alagoas</option>
+                <option value="4.30">Amapá</option>
+                <option value="4.72">Amazonas</option>
+                <option value="5.44">Bahia</option>
                 <option value="5.56">Ceará</option>
+                <option value="5.11">Distrito Federal</option>
+                <option value="4.90">Espírito Santo</option>
+                <option value="5.28">Goiás</option>
+                <option value="5.03">Maranhão</option>
+                <option value="5.12">Mato Grosso</option>
+                <option value="5.04">Mato Grosso do Sul</option>
                 <option value="4.35">Minas Gerais</option>
+                <option value="4.88">Pará</option>
+                <option value="5.63">Paraíba</option>
                 <option value="3.72">Paraná</option>
                 <option value="5.71">Pernambuco</option>
+                <option value="5.66">Piauí</option>
                 <option value="4.64">Rio de Janeiro</option>
+                <option value="5.68">Rio Grande do Norte</option>
+                <option value="4.22">Rio Grande do Sul</option>
+                <option value="4.55">Rondônia</option>
+                <option value="4.64">Roraima</option>
                 <option value="4.15" selected>São Paulo</option>
                 <option value="4.24">Santa Catarina</option>
+                <option value="5.43">Sergipe</option>
+                <option value="5.15">Tocantins</option>
               </select>
             </label>
+            <label>Irradiação personalizada (kWh/m²/dia)
+              <input type="number" min="0" step="0.01" id="irradianciaManual" value="4.15">
+            </label>
             <label>Potência da placa (Wp)
-              <input type="number" min="1" id="potPlaca" value="450">
+              <input type="number" min="1" id="potPlaca" value="550">
+            </label>
+            <label>Performance do sistema (%)
+              <input type="number" min="50" max="95" step="1" id="performance" value="80">
+            </label>
+            <label>Custo instalado estimado (R$/Wp)
+              <input type="number" min="0" step="0.01" id="custoWp" value="2.50">
+            </label>
+            <label>Fator de compensação/economia (%)
+              <input type="number" min="0" max="100" step="1" id="fatorEconomia" value="85">
             </label>
           </div>
         </fieldset>
@@ -99,11 +129,24 @@
           <div><dt>Energia solar necessária</dt><dd><span id="energiaSolar">0</span> kWh/mês</dd></div>
           <div><dt>Potência do sistema</dt><dd><span id="potenciaSistema">0</span> kWp</dd></div>
           <div><dt>Quantidade de placas</dt><dd><span id="qtdPlacas">0</span> placas de <span id="potPlacaShow">0</span> Wp</dd></div>
-          <div><dt>Economia anual</dt><dd>R$ <span id="economiaAnual">0</span></dd></div>
+          <div><dt>Investimento estimado</dt><dd>R$ <span id="investimento">0</span></dd></div>
+          <div><dt>Economia anual líquida</dt><dd>R$ <span id="economiaAnual">0</span></dd></div>
+          <div><dt>Payback simples</dt><dd><span id="payback">0</span> anos</dd></div>
           <div><dt>Economia em 25 anos</dt><dd>R$ <span id="economia25">0</span></dd></div>
         </dl>
-        <p>Estimativa simplificada com fator de desempenho de 75%, sem reajuste anual de tarifa.</p>
+        <p>Estimativa educativa. Ajuste tarifa, custo por Wp e fator de compensação conforme sua distribuidora e orçamento real.</p>
       </aside>
+    </section>
+
+    <section class="reference-box">
+      <h2>Premissas atualizadas</h2>
+      <ul>
+        <li>Irradiação baseada em médias de referência por estado; para projeto real, consulte a cidade no <a href="https://cresesb.cepel.br/sundata/index.php" target="_blank" rel="noreferrer">CRESESB SunData</a>.</li>
+        <li>O Atlas Brasileiro de Energia Solar do <a href="https://labren.ccst.inpe.br/atlas_2017.html" target="_blank" rel="noreferrer">INPE/LABREN</a> usa mais de 17 anos de dados satelitais.</li>
+        <li>O custo instalado é editável. O valor padrão usa uma referência de mercado recente em R$/Wp e pode variar por região, equipamento e instalador.</li>
+        <li>O fator de compensação considera que a economia real pode ser menor que 100% por regras da <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14300.htm" target="_blank" rel="noreferrer">Lei 14.300</a>, Fio B, impostos e consumo mínimo.</li>
+        <li>Para contexto de mercado, consulte também os dados setoriais da <a href="https://www.absolar.org.br/" target="_blank" rel="noreferrer">ABSOLAR</a>.</li>
+      </ul>
     </section>
   </main>
 
