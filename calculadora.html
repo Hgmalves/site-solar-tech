@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora SolarTech para estimar consumo, potência do sistema, quantidade de placas e economia.">
+  <title>Calculadora Solar | SolarTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegação principal">
+      <a class="brand" href="index.html"><i class="fa-solid fa-solar-panel"></i><span>Solar<span>Tech</span></span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a class="active" href="calculadora.html">Calculadora</a></li>
+        <li><a href="saiba-mais.html">Saiba Mais</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container page">
+    <div class="page-heading">
+      <p class="eyebrow">Simulador educativo</p>
+      <h1>Dimensionamento do projeto solar</h1>
+      <p>Preencha os dados da conta de luz para estimar o tamanho do sistema fotovoltaico e a economia possível.</p>
+    </div>
+
+    <section class="calculator-shell">
+      <form id="solar-form" class="calculator-form">
+        <fieldset>
+          <legend>Consumo mensal em kWh</legend>
+          <div class="month-grid">
+            <label>Janeiro <input type="number" min="0" id="jan" value="790"></label>
+            <label>Fevereiro <input type="number" min="0" id="fev" value="820"></label>
+            <label>Março <input type="number" min="0" id="mar" value="776"></label>
+            <label>Abril <input type="number" min="0" id="abr" value="884"></label>
+            <label>Maio <input type="number" min="0" id="mai" value="760"></label>
+            <label>Junho <input type="number" min="0" id="jun" value="430"></label>
+            <label>Julho <input type="number" min="0" id="jul" value="730"></label>
+            <label>Agosto <input type="number" min="0" id="ago" value="850"></label>
+            <label>Setembro <input type="number" min="0" id="set" value="896"></label>
+            <label>Outubro <input type="number" min="0" id="out" value="922"></label>
+            <label>Novembro <input type="number" min="0" id="nov" value="1008"></label>
+            <label>Dezembro <input type="number" min="0" id="dez" value="1056"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dados do sistema</legend>
+          <div class="form-grid">
+            <label>Tarifa com impostos (R$/kWh)
+              <input type="number" min="0" step="0.01" id="tarifa" value="0.84">
+            </label>
+            <label>Percentual solar desejado
+              <select id="percSolar">
+                <option value="0.5">50%</option>
+                <option value="0.7">70%</option>
+                <option value="0.9">90%</option>
+                <option value="1" selected>100%</option>
+              </select>
+            </label>
+            <label>Estado / irradiação média
+              <select id="estado">
+                <option value="4.46">Acre</option>
+                <option value="5.37">Alagoas</option>
+                <option value="5.56">Ceará</option>
+                <option value="4.35">Minas Gerais</option>
+                <option value="3.72">Paraná</option>
+                <option value="5.71">Pernambuco</option>
+                <option value="4.64">Rio de Janeiro</option>
+                <option value="4.15" selected>São Paulo</option>
+                <option value="4.24">Santa Catarina</option>
+              </select>
+            </label>
+            <label>Potência da placa (Wp)
+              <input type="number" min="1" id="potPlaca" value="450">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="button" type="submit"><i class="fa-solid fa-chart-line"></i> Calcular</button>
+          <button class="button button-danger" type="reset"><i class="fa-solid fa-rotate-left"></i> Limpar</button>
+        </div>
+        <p id="form-alert" class="form-alert" role="alert"></p>
+      </form>
+
+      <aside id="resultados" class="results-panel" aria-live="polite">
+        <h2>Resultado estimado</h2>
+        <dl>
+          <div><dt>Consumo médio</dt><dd><span id="consMedio">0</span> kWh/mês</dd></div>
+          <div><dt>Energia solar necessária</dt><dd><span id="energiaSolar">0</span> kWh/mês</dd></div>
+          <div><dt>Potência do sistema</dt><dd><span id="potenciaSistema">0</span> kWp</dd></div>
+          <div><dt>Quantidade de placas</dt><dd><span id="qtdPlacas">0</span> placas de <span id="potPlacaShow">0</span> Wp</dd></div>
+          <div><dt>Economia anual</dt><dd>R$ <span id="economiaAnual">0</span></dd></div>
+          <div><dt>Economia em 25 anos</dt><dd>R$ <span id="economia25">0</span></dd></div>
+        </dl>
+        <p>Estimativa simplificada com fator de desempenho de 75%, sem reajuste anual de tarifa.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand footer-brand"><i class="fa-solid fa-solar-panel"></i><span>Solar<span>Tech</span></span></div>
+      <p>Calculadora educativa, não substitui projeto técnico profissional.</p>
+      <p>© 2026 SolarTech</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/calculadora.js"></script>
+</body>
+</html>
