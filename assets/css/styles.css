@@ -265,6 +265,121 @@ a {
   color: white;
 }
 
+.solar-intel {
+  padding: 56px 0;
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.solar-intel-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.map-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.map-card img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  background: #eaf3fb;
+}
+
+.map-card figcaption {
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.intel-content h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+.intel-content p {
+  color: var(--muted);
+}
+
+.intel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.intel-stats div,
+.timeline-grid article {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbfd;
+}
+
+.intel-stats strong {
+  display: block;
+  color: var(--green-dark);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.intel-stats span,
+.timeline-grid p {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.source-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.timeline-grid span {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.timeline-grid h3 {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.timeline-grid p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
 .impact-band .eyebrow,
 .impact-band p {
   color: #ccefe1;
@@ -599,12 +714,18 @@ select {
 
   .hero-grid,
   .impact-grid,
+  .solar-intel-grid,
   .calculator-shell {
     grid-template-columns: 1fr;
   }
 
   .feature-grid,
-  .video-grid {
+  .video-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intel-stats {
     grid-template-columns: 1fr;
   }
 

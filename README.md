@@ -8,6 +8,7 @@ Site educativo sobre energia solar fotovoltaica, criado a partir de um projeto d
 - Calculadora para estimar consumo médio, potência do sistema, quantidade de placas e economia.
 - Guia com perguntas frequentes sobre energia solar.
 - Galeria com vídeos educativos.
+- Mapa de irradiação solar e linha do tempo da evolução do setor no Brasil.
 - Página sobre o projeto e contato.
 
 ## Como abrir
